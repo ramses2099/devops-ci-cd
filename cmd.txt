@@ -7,6 +7,7 @@ CMD: CMD ["node", "app.js"]
 EXPOSE: EXPOSE 3000
 ENV: ENV NODE_ENV=production
 ARG: ARG VERSION=1.0.0
+ENTRYPOINT: ENTRYPOINT["node","app.js"]
 VOLUME: VOLUME ["/app/data]
 USER: USER node
 ONBUILD: ONBUILD RUN npm install
