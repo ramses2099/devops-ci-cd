@@ -1,0 +1,15 @@
+FROM :  FROM node:18
+
+WORKDIR: WORKDIR /app
+COPY: COPY . /app
+RUN: RUN npm install
+CMD: CMD ["node", "app.js"]
+EXPOSE: EXPOSE 3000
+ENV: ENV NODE_ENV=production
+ARG: ARG VERSION=1.0.0
+VOLUME: VOLUME ["/app/data]
+USER: USER node
+ONBUILD: ONBUILD RUN npm install
+LABEL: LABEL maintainer="ramses2099@gmail.com"
+STOPSIGNAL: STOPSIGNAL SIGKILL
+HEALTCHECK: HEALTCHECK --intervel=30s --timeout=10s --retries=3 CMD curl -f http://localhsot/ ||
